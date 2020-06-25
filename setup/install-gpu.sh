@@ -6,6 +6,7 @@ $update-pciids
 $lspci | grep -i nvidia
 #The gcc compiler is required for development using the CUDA Toolkit.
 $gcc --version
+$sudo apt install gcc
 #The version of the kernel your system is running can be found by running the following command: 
 $ uname -r
 #Verify the system has the correct kernel headers and development packages installed. The kernel headers and development packages for the currently running kernel can be installed with: 
