@@ -1,10 +1,27 @@
 # This script is designed to work with ubuntu 18.04 LTS
 
+#Refresh pci. update the PCI hardware database that Linux maintains by entering update-pciids (generally found in /sbin) at the command line
+update-pciids
+# Verify gpu is CUDA available
+lspci | grep -i nvidia
+#The gcc compiler is required for development using the CUDA Toolkit.
+gcc --version
+#The version of the kernel your system is running can be found by running the following command: 
+$ uname -r
+#Verify the system has the correct kernel headers and development packages installed. The kernel headers and development packages for the currently running kernel can be installed with: 
+$ sudo apt-get install linux-headers-$(uname -r)
+
 # ensure system is updated and has basic build tools
 sudo apt-get update
 sudo apt-get --assume-yes upgrade
 sudo apt-get --assume-yes install tmux build-essential gcc g++ make binutils
 sudo apt-get --assume-yes install software-properties-common
+sudo apt-get --assume-yes install git
+
+# download the linux nvidia driver
+wget ""
+chmod +x NVIDIA-Linux-x86_64-440.44.run
+sudo sh NVIDIA-Linux-x86_64-440.44.run
 
 # download and install GPU drivers  compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.0.130-1_amd64.deb "cuda-repo-ubuntu1804_10.0.130-1_amd64.deb"
 wget "http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.0.130-1_amd64.deb" -O "cuda-repo-ubuntu1804_10.0.130-1_amd64.deb"
@@ -14,6 +31,7 @@ sudo apt-get update
 sudo apt-get -y install cuda
 sudo modprobe nvidia
 nvidia-smi
+nvcc --version
 
 # install Anaconda for current user //mkdir downloads  Anaconda2-4.2.0-Linux-x86_64.sh 
 cd Downloads
