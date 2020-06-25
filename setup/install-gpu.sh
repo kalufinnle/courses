@@ -1,11 +1,11 @@
 # This script is designed to work with ubuntu 18.04 LTS
 
 #Refresh pci. update the PCI hardware database that Linux maintains by entering update-pciids (generally found in /sbin) at the command line
-update-pciids
+$update-pciids
 # Verify gpu is CUDA available
-lspci | grep -i nvidia
+$lspci | grep -i nvidia
 #The gcc compiler is required for development using the CUDA Toolkit.
-gcc --version
+$gcc --version
 #The version of the kernel your system is running can be found by running the following command: 
 $ uname -r
 #Verify the system has the correct kernel headers and development packages installed. The kernel headers and development packages for the currently running kernel can be installed with: 
