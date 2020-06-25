@@ -31,7 +31,6 @@ sudo apt-get update
 sudo apt-get -y install cuda
 sudo modprobe nvidia
 nvidia-smi
-nvcc --version
 
 # install Anaconda for current user //mkdir downloads  Anaconda2-4.2.0-Linux-x86_64.sh 
 cd Downloads
@@ -68,6 +67,7 @@ tar -zxf cudnn.tgz
 cd cuda
 sudo cp lib64/* /usr/local/cuda/lib64/
 sudo cp include/* /usr/local/cuda/include/
+nvcc --version
 
 # configure jupyter and prompt for password
 
